@@ -4,5 +4,5 @@ namespace Engine {
 }
 
 void main() {
-	Engine::Print();
+	//Engine::Print();
 }

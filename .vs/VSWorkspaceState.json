@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Game-Engine"
+    "\\Game-Engine",
+    "\\Game-Engine\\src",
+    "\\Sandbox",
+    "\\Sandbox\\src"
   ],
   "SelectedNode": "\\Game-Engine.sln",
   "PreviewInSolutionExplorer": false

@@ -9,6 +9,7 @@ namespace Engine {
 
 	Application::~Application()
 	{
+
 	}
 
 	void Application::Run() 

@@ -1,11 +1,11 @@
 #include <Engine.h>
-
-class Sandbox : public Engine::Application
+using namespace Engine;
+class Sandbox : public Application
 {
 public:
 	Sandbox() 
 	{
-
+		ENGINE_INFO("SandBox Started!");
 	}
 	~Sandbox()
 	{

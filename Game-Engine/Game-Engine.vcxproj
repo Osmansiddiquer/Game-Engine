@@ -140,12 +140,14 @@
   <ItemGroup>
     <ClInclude Include="src\Core\Application.h" />
     <ClInclude Include="src\Core\Core.h" />
+    <ClInclude Include="src\Core\Engine_pch.h" />
     <ClInclude Include="src\Core\EntryPoint.h" />
     <ClInclude Include="src\Core\Log.h" />
     <ClInclude Include="src\Engine.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Core\Application.cpp" />
+    <ClCompile Include="src\Core\Engine_pch.cpp" />
     <ClCompile Include="src\Core\Log.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

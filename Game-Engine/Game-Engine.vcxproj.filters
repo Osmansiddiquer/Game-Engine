@@ -19,6 +19,7 @@
       <Filter>Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Engine.h" />
+    <ClInclude Include="src\Core\Engine_pch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Core\Application.cpp">
@@ -27,5 +28,6 @@
     <ClCompile Include="src\Core\Log.cpp">
       <Filter>Core</Filter>
     </ClCompile>
+    <ClCompile Include="src\Core\Engine_pch.cpp" />
   </ItemGroup>
 </Project>

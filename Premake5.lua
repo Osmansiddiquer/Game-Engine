@@ -18,6 +18,10 @@ project "Game-Engine"
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}") 
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
+	pchheader "Engine_pch.h"
+	pchsource "Game-Engine/src/Engine_pch.cpp"
+
+
 	files 
 	{
 		"%{prj.name}/src/**.h",

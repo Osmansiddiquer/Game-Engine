@@ -1,12 +1,11 @@
 #ifndef EVENT_H
 #define EVENT_H
 
-//#include "Game-Engine/Debug/Instrumentor.h"
-//#include "Game-Engine/Core/Base.h"
+#include "Core/Core.h"
 
 #include <functional>
-
-namespace Game-Engine {
+#include <string>
+namespace Engine {
 
 enum class EventType
 {
@@ -26,18 +25,17 @@ enum EventCategory
 	EventCategoryMouse          = BIT(3),
 	EventCategoryMouseButton    = BIT(4)
 };
-#define EVENT_CLASS_TYPE(type) static EventType GetStaticType() { return EventType::type; }
-virtual EventType GetEventType() const override { return GetStaticType(); }
-virtual const char* GetName() const override { return #type; }
+#define EVENT_CLASS_TYPE(type)  static EventType GetStaticType() { return EventType::##type; }\
+								virtual EventType GetEventType() const override { return GetStaticType(); }\
+								virtual const char* GetName() const override { return #type; }
 
 #define EVENT_CLASS_CATEGORY(category) virtual int GetCategoryFlags() const override { return category; }
 
-class Event
+class ENGINE_API Event
 {
+	friend class EventDispatcher;
 public:
 	virtual ~Event() = default;
-
-	bool Handled = false;
 
 	virtual EventType GetEventType() const = 0;
 	virtual const char* GetName() const = 0;
@@ -48,6 +46,8 @@ public:
 	{
 		return GetCategoryFlags() & category;
 	}
+protected:
+	bool Handled = false;
 };
 
 class EventDispatcher
@@ -58,8 +58,8 @@ public:
 	{
 	}
 	
-	template<typename T, typename F>
-	bool Dispatch(const F& func)
+	template<typename T>
+	bool Dispatch(std::function<bool(T&)> func)
 	{
 		if (m_Event.GetEventType() == T::GetStaticType())
 		{

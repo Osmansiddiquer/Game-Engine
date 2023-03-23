@@ -1,11 +1,12 @@
 #pragma once
 
-#include "Game-Engine/Events/Event.h"
-//#include "Game-Engine/Core/KeyCodes.h"
+#include "Event.h"
+#include <sstream>
 
-namespace Game-Engine {
+using KeyCode = int; //Change this if you make a KeyCode class
+namespace Engine {
 
-	class KeyEvent : public Event
+	class ENGINE_API KeyEvent : public Event
 	{
 	public:
 		KeyCode GetKeyCode() const { return m_KeyCode; }
@@ -18,7 +19,7 @@ namespace Game-Engine {
 		KeyCode m_KeyCode;
 	};
 
-	class KeyPressedEvent : public KeyEvent
+	class ENGINE_API KeyPressedEvent : public KeyEvent
 	{
 	public:
 		KeyPressedEvent(const KeyCode keycode, bool isRepeat = false)
@@ -38,7 +39,7 @@ namespace Game-Engine {
 		bool m_IsRepeat;
 	};
 
-	class KeyReleasedEvent : public KeyEvent
+	class ENGINE_API KeyReleasedEvent : public KeyEvent
 	{
 	public:
 		KeyReleasedEvent(const KeyCode keycode)
@@ -54,7 +55,7 @@ namespace Game-Engine {
 		EVENT_CLASS_TYPE(KeyReleased)
 	};
 
-	class KeyTypedEvent : public KeyEvent
+	class ENGINE_API KeyTypedEvent : public KeyEvent
 	{
 	public:
 		KeyTypedEvent(const KeyCode keycode)
@@ -68,64 +69,6 @@ namespace Game-Engine {
 		}
 
 		EVENT_CLASS_TYPE(KeyTyped)
-	};
-
-	class WindowResizeEvent : public Event
-	{
-	public:
-		WindowResizeEvent(unsigned int width, unsigned int height)
-			: m_Width(width), m_Height(height) {}
-
-		unsigned int GetWidth() const { return m_Width; }
-		unsigned int GetHeight() const { return m_Height; }
-
-		std::string ToString() const override
-		{
-			std::stringstream ss;
-			ss << "WindowResizeEvent: " << m_Width << ", " << m_Height;
-			return ss.str();
-		}
-
-		EVENT_CLASS_TYPE(WindowResize)
-		EVENT_CLASS_CATEGORY(EventCategoryApplication)
-	private:
-		unsigned int m_Width, m_Height;
-	};
-
-	class WindowCloseEvent : public Event
-	{
-	public:
-		WindowCloseEvent() = default;
-
-		EVENT_CLASS_TYPE(WindowClose)
-		EVENT_CLASS_CATEGORY(EventCategoryApplication)
-	};
-
-	class AppTickEvent : public Event
-	{
-	public:
-		AppTickEvent() = default;
-
-		EVENT_CLASS_TYPE(AppTick)
-		EVENT_CLASS_CATEGORY(EventCategoryApplication)
-	};
-
-	class AppUpdateEvent : public Event
-	{
-	public:
-		AppUpdateEvent() = default;
-
-		EVENT_CLASS_TYPE(AppUpdate)
-		EVENT_CLASS_CATEGORY(EventCategoryApplication)
-	};
-
-	class AppRenderEvent : public Event
-	{
-	public:
-		AppRenderEvent() = default;
-
-		EVENT_CLASS_TYPE(AppRender)
-		EVENT_CLASS_CATEGORY(EventCategoryApplication)
 	};
 
 }

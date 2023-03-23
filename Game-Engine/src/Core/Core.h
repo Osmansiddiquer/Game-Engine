@@ -1,5 +1,4 @@
 #pragma once
-
 //automating dll exporting and importing
 
 #ifdef ENGINE_PLATFORM_WINDOWS //specific to windows

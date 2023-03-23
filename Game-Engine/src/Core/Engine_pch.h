@@ -11,8 +11,6 @@
 #include <algorithm>
 
 
-
-
  //specific to windows
 #ifdef ENGINE_PLATFORM_WINDOWS
 	#include <Windows.h>

@@ -5,6 +5,8 @@
 
 #include <functional>
 #include <string>
+
+#define BIT(x) 1<<x
 namespace Engine {
 
 enum class EventType
@@ -46,8 +48,10 @@ public:
 	{
 		return GetCategoryFlags() & category;
 	}
+
+	bool isHandled() { return m_handled; }
 protected:
-	bool Handled = false;
+	bool m_handled = false;
 };
 
 class EventDispatcher
@@ -58,12 +62,12 @@ public:
 	{
 	}
 	
-	template<typename T>
+	template<class T>
 	bool Dispatch(std::function<bool(T&)> func)
 	{
-		if (m_Event.GetEventType() == T::GetStaticType())
+		if (m_Event.GetEventType() == T::GetStaticType()) //checks if functionn is 
 		{
-			m_Event.Handled |= func(static_cast<T&>(m_Event));
+			m_Event.m_handled |= func(static_cast<T&>(m_Event)); //runs the function
 			return true;
 		}
 		return false;

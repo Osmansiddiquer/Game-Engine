@@ -1,0 +1,963 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Engine::Application" Collapsed="true">
+    <Position X="31" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAADAAAAAAAkQAAgAABAICAAAAAAAAAAKAAAI=</HashCode>
+      <FileName>src\Core\Application.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Engine::Layer" Collapsed="true">
+    <Position X="2.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAAAAEAECAAAAAAIAAAAAEAAABAAEABAA=</HashCode>
+      <FileName>src\Core\Layer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Engine::LayerStack" Collapsed="true">
+    <Position X="34.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACACCAAAAAAAACAkAQAAICAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>src\Core\LayerStack.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Engine::Log" Collapsed="true">
+    <Position X="36.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAACABAAAAAAAAAAAAAAAAAAAAABAAACAAAAAAA=</HashCode>
+      <FileName>src\Core\Log.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Engine::WindowProperties" Collapsed="true">
+    <Position X="38" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAQABAAAQAQAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Core\Window.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Engine::Window" Collapsed="true">
+    <Position X="5.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIBAABAAAAAAABAAQAAAMAAgAAAAEEAAAA=</HashCode>
+      <FileName>src\Core\Window.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Engine::ApplicationEvent" Collapsed="true">
+    <Position X="15" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>src\Events\ApplicationEvent.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Engine::WindowResizeEvent" Collapsed="true">
+    <Position X="10.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAFAAAAAABAAAAAAACAEAAAAEAAAAA=</HashCode>
+      <FileName>src\Events\ApplicationEvent.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Engine::WindowCloseEvent" Collapsed="true">
+    <Position X="12.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Events\ApplicationEvent.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Engine::AppTickEvent" Collapsed="true">
+    <Position X="15" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Events\ApplicationEvent.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Engine::AppUpdateEvent" Collapsed="true">
+    <Position X="17.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Events\ApplicationEvent.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Engine::AppRenderEvent" Collapsed="true">
+    <Position X="19.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Events\ApplicationEvent.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Engine::Event" Collapsed="true">
+    <Position X="16" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAIAAAAIAAAEEEAAAEAAAAAAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>src\Events\Event.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Engine::EventDispatcher" Collapsed="true">
+    <Position X="32.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAgAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Events\Event.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Engine::KeyEvent" Collapsed="true">
+    <Position X="6" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAACAAAA=</HashCode>
+      <FileName>src\Events\KeyEvent.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Engine::KeyPressedEvent" Collapsed="true">
+    <Position X="3.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAAAAEAAAAAAAAAAAAAAAABAAAAAEAAAA=</HashCode>
+      <FileName>src\Events\KeyEvent.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Engine::KeyReleasedEvent" Collapsed="true">
+    <Position X="6" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Events\KeyEvent.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Engine::KeyTypedEvent" Collapsed="true">
+    <Position X="8.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>src\Events\KeyEvent.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Engine::MouseMovedEvent" Collapsed="true">
+    <Position X="21.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAAAEAAADAAAAAAAAAAAAYAAAAAAAAAA=</HashCode>
+      <FileName>src\Events\MouseEvent.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Engine::MouseScrolledEvent" Collapsed="true">
+    <Position X="24" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAMAAAAAAEAAAAAAAAgAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>src\Events\MouseEvent.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Engine::MouseButtonEvent" Collapsed="true">
+    <Position X="27.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAMAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Events\MouseEvent.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Engine::MouseButtonPressedEvent" Collapsed="true">
+    <Position X="28.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Events\MouseEvent.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Engine::MouseButtonReleasedEvent" Collapsed="true">
+    <Position X="26.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Events\MouseEvent.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Engine::WindowsWindow" Collapsed="true">
+    <Position X="5.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAABAABAAAAFAQAAAAAAEAAAgAACAAEAAAA=</HashCode>
+      <FileName>src\Platform\Windows\Window.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Engine::ImGuiLayer" Collapsed="true">
+    <Position X="2.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAIAAAAAAAgEAABABAQoACQAAABAABAAEAAAA=</HashCode>
+      <FileName>src\Layers\ImGuiLayer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="ImGui_ImplGlfw_Data" Collapsed="true">
+    <Position X="32.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgBDAAYAAAAAAAAAAQgABIAAAAgAAAIAAAACARAJQA=</HashCode>
+      <FileName>src\Platform\GLFW\imgui_impl_glfw.cpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="ImGui_ImplGlfw_ViewportData" Collapsed="true">
+    <Position X="34.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAABCAAAQAgAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>src\Platform\GLFW\imgui_impl_glfw.cpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="ImGui_ImplOpenGL3_Data" Collapsed="true">
+    <Position X="36.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgABBAAAAAAgAAAkCAAAASAgQAAAAgAAABAIE=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3.cpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="ImGui_ImplOpenGL3_VtxAttribState" Collapsed="true">
+    <Position X="38" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABEEAAAAAgIAAAAAAAAAAQAAAAQAAAQAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3.cpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="__unnamed_struct_05e9_2" Collapsed="true">
+    <Position X="31" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Typedef Name="khronos_float_t" Collapsed="true">
+    <Position X="38" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="khronos_int8_t" Collapsed="true">
+    <Position X="41.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="khronos_uint8_t" Collapsed="true">
+    <Position X="43.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="khronos_int16_t" Collapsed="true">
+    <Position X="39.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="khronos_uint16_t" Collapsed="true">
+    <Position X="7.5" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="khronos_intptr_t" Collapsed="true">
+    <Position X="13.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="khronos_ssize_t" Collapsed="true">
+    <Position X="3.5" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="khronos_int64_t" Collapsed="true">
+    <Position X="3.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="khronos_uint64_t" Collapsed="true">
+    <Position X="9.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="GLvoid" Collapsed="true">
+    <Position X="34.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\um\gl\GL.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="GLenum" Collapsed="true">
+    <Position X="36.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\um\gl\GL.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="GLfloat" Collapsed="true">
+    <Position X="38" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\um\gl\GL.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="GLint" Collapsed="true">
+    <Position X="39.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\um\gl\GL.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="GLsizei" Collapsed="true">
+    <Position X="43.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\um\gl\GL.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="GLbitfield" Collapsed="true">
+    <Position X="36.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\um\gl\GL.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="GLdouble" Collapsed="true">
+    <Position X="32.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\um\gl\GL.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="GLuint" Collapsed="true">
+    <Position X="31" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\um\gl\GL.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="GLboolean" Collapsed="true">
+    <Position X="38" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\um\gl\GL.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="GLubyte" Collapsed="true">
+    <Position X="46.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\um\gl\GL.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="PFNGLPOLYGONMODEPROC" Collapsed="true">
+    <Position X="31" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="PFNGLSCISSORPROC" Collapsed="true">
+    <Position X="34.5" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="PFNGLTEXPARAMETERIPROC" Collapsed="true">
+    <Position X="39.75" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="PFNGLTEXIMAGE2DPROC" Collapsed="true">
+    <Position X="38" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="PFNGLCLEARPROC" Collapsed="true">
+    <Position X="31" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="PFNGLCLEARCOLORPROC" Collapsed="true">
+    <Position X="46.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="PFNGLDISABLEPROC" Collapsed="true">
+    <Position X="45" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="PFNGLENABLEPROC" Collapsed="true">
+    <Position X="34.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="PFNGLFLUSHPROC" Collapsed="true">
+    <Position X="38" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="PFNGLPIXELSTOREIPROC" Collapsed="true">
+    <Position X="46.75" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="PFNGLREADPIXELSPROC" Collapsed="true">
+    <Position X="32.75" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="PFNGLGETINTEGERVPROC" Collapsed="true">
+    <Position X="41.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="PFNGLVIEWPORTPROC" Collapsed="true">
+    <Position X="31" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="GLclampf" Collapsed="true">
+    <Position X="45" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\um\gl\GL.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="GLclampd" Collapsed="true">
+    <Position X="43.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\um\gl\GL.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="PFNGLDRAWELEMENTSPROC" Collapsed="true">
+    <Position X="32.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="PFNGLBINDTEXTUREPROC" Collapsed="true">
+    <Position X="34.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="PFNGLDELETETEXTURESPROC" Collapsed="true">
+    <Position X="39.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="PFNGLGENTEXTURESPROC" Collapsed="true">
+    <Position X="41.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="PFNGLACTIVETEXTUREPROC" Collapsed="true">
+    <Position X="45" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="PFNGLBLENDFUNCSEPARATEPROC" Collapsed="true">
+    <Position X="41.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="PFNGLBLENDEQUATIONPROC" Collapsed="true">
+    <Position X="38" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="GLsizeiptr" Collapsed="true">
+    <Position X="3.5" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="GLintptr" Collapsed="true">
+    <Position X="13.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="PFNGLBINDBUFFERPROC" Collapsed="true">
+    <Position X="31" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="PFNGLDELETEBUFFERSPROC" Collapsed="true">
+    <Position X="34.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="PFNGLGENBUFFERSPROC" Collapsed="true">
+    <Position X="39.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="PFNGLBUFFERDATAPROC" Collapsed="true">
+    <Position X="43.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="PFNGLBUFFERSUBDATAPROC" Collapsed="true">
+    <Position X="45" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="GLchar" Collapsed="true">
+    <Position X="41.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="GLshort" Collapsed="true">
+    <Position X="41.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\um\gl\GL.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="GLbyte" Collapsed="true">
+    <Position X="39.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\um\gl\GL.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="GLushort" Collapsed="true">
+    <Position X="32.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\um\gl\GL.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="PFNGLBLENDEQUATIONSEPARATEPROC" Collapsed="true">
+    <Position X="39.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="PFNGLATTACHSHADERPROC" Collapsed="true">
+    <Position X="46.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="PFNGLCOMPILESHADERPROC" Collapsed="true">
+    <Position X="32.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="PFNGLDELETEPROGRAMPROC" Collapsed="true">
+    <Position X="36.25" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="PFNGLDELETESHADERPROC" Collapsed="true">
+    <Position X="38" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="PFNGLDETACHSHADERPROC" Collapsed="true">
+    <Position X="43.25" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="PFNGLDISABLEVERTEXATTRIBARRAYPROC" Collapsed="true">
+    <Position X="46.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="PFNGLENABLEVERTEXATTRIBARRAYPROC" Collapsed="true">
+    <Position X="36.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="PFNGLGETPROGRAMIVPROC" Collapsed="true">
+    <Position X="46.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="PFNGLGETPROGRAMINFOLOGPROC" Collapsed="true">
+    <Position X="45" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="PFNGLGETSHADERIVPROC" Collapsed="true">
+    <Position X="32.75" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="PFNGLGETSHADERINFOLOGPROC" Collapsed="true">
+    <Position X="31" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="PFNGLGETVERTEXATTRIBIVPROC" Collapsed="true">
+    <Position X="41.5" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="PFNGLGETVERTEXATTRIBPOINTERVPROC" Collapsed="true">
+    <Position X="43.25" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="PFNGLLINKPROGRAMPROC" Collapsed="true">
+    <Position X="45" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="PFNGLSHADERSOURCEPROC" Collapsed="true">
+    <Position X="36.25" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="PFNGLUSEPROGRAMPROC" Collapsed="true">
+    <Position X="45" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="PFNGLUNIFORM1IPROC" Collapsed="true">
+    <Position X="41.5" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="PFNGLUNIFORMMATRIX4FVPROC" Collapsed="true">
+    <Position X="43.25" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="PFNGLVERTEXATTRIBPOINTERPROC" Collapsed="true">
+    <Position X="46.75" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="GLhalf" Collapsed="true">
+    <Position X="7.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="PFNGLGETBOOLEANI_VPROC" Collapsed="true">
+    <Position X="45" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="PFNGLGETINTEGERI_VPROC" Collapsed="true">
+    <Position X="38" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="PFNGLBINDVERTEXARRAYPROC" Collapsed="true">
+    <Position X="36.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="PFNGLDELETEVERTEXARRAYSPROC" Collapsed="true">
+    <Position X="41.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="PFNGLGENVERTEXARRAYSPROC" Collapsed="true">
+    <Position X="43.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="GLsync" Collapsed="true">
+    <Position X="45" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="GLuint64" Collapsed="true">
+    <Position X="12.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="GLint64" Collapsed="true">
+    <Position X="0.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="PFNGLDRAWELEMENTSBASEVERTEXPROC" Collapsed="true">
+    <Position X="31" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="PFNGLGETINTEGER64I_VPROC" Collapsed="true">
+    <Position X="36.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="PFNGLBINDSAMPLERPROC" Collapsed="true">
+    <Position X="32.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="PFNGLGETFLOATI_VPROC" Collapsed="true">
+    <Position X="34.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="PFNGLGETDOUBLEI_VPROC" Collapsed="true">
+    <Position X="31" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="GLDEBUGPROC" Collapsed="true">
+    <Position X="46.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="PFNGLGETTRANSFORMFEEDBACKI_VPROC" Collapsed="true">
+    <Position X="34.5" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="PFNGLGETTRANSFORMFEEDBACKI64_VPROC" Collapsed="true">
+    <Position X="36.25" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="GLuint64EXT" Collapsed="true">
+    <Position X="9.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="GLDEBUGPROCARB" Collapsed="true">
+    <Position X="31" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="GLeglImageOES" Collapsed="true">
+    <Position X="34.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="PFNGLGETFLOATI_VEXTPROC" Collapsed="true">
+    <Position X="32.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="PFNGLGETDOUBLEI_VEXTPROC" Collapsed="true">
+    <Position X="46.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="PFNGLGETPOINTERI_VEXTPROC" Collapsed="true">
+    <Position X="43.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="PFNGLGETVERTEXARRAYINTEGERI_VEXTPROC" Collapsed="true">
+    <Position X="38" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="PFNGLGETVERTEXARRAYPOINTERI_VEXTPROC" Collapsed="true">
+    <Position X="39.75" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="GLVULKANPROCNV" Collapsed="true">
+    <Position X="36.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="GLint64EXT" Collapsed="true">
+    <Position X="3.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="PFNGLGETINTEGERUI64I_VNVPROC" Collapsed="true">
+    <Position X="39.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="GL3WglProc" Collapsed="true">
+    <Position X="34.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="GL3WGetProcAddressProc" Collapsed="true">
+    <Position X="31" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="GL3WglGetProcAddr" Collapsed="true">
+    <Position X="32.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\OpenGL\imgui_impl_opengl3_loader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Enum Name="Engine::EventType" Collapsed="true">
+    <Position X="32.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAEACAAAAAAgAAAIgAAAAgAAAAEBAgAAAAAIABFgAQA=</HashCode>
+      <FileName>src\Events\Event.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Engine::EventCategory" Collapsed="true">
+    <Position X="31" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAQAAAAAAAAAAAAAAAAAAAQAAQAAEAAIA=</HashCode>
+      <FileName>src\Events\Event.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="GlfwClientApi" Collapsed="true">
+    <Position X="34.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>src\Platform\GLFW\imgui_impl_glfw.cpp</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="VkResult" Collapsed="true">
+    <Position X="36.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Platform\GLFW\imgui_impl_glfw.cpp</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

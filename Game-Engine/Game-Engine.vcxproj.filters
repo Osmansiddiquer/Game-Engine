@@ -1,28 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Filter Include="Collisions">
+      <UniqueIdentifier>{447108E9-3029-4A36-9930-23928507E526}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Core">
       <UniqueIdentifier>{2EB4837C-1AEB-840D-C3D7-6A10AFED000F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Config">
+      <UniqueIdentifier>{73EFF66E-DFA4-6F64-6899-693BD44D6668}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Geometry">
+      <UniqueIdentifier>{497583BA-B535-FFF0-7E70-486EEAEF43CD}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Math">
+      <UniqueIdentifier>{C7E5BF15-3350-748C-7C8E-2532E83752E1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ECS">
+      <UniqueIdentifier>{60E1870B-CCEA-877C-5566-9E7CC16E937C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ECS\Components">
+      <UniqueIdentifier>{752AA906-61F8-9C0C-4A8C-0D3336F97871}</UniqueIdentifier>
     </Filter>
     <Filter Include="Events">
       <UniqueIdentifier>{3A8963B1-262B-8E87-0FE6-A1DBFB2615D8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Input">
+      <UniqueIdentifier>{953A660D-014F-8EBE-CAD0-311E36A48AEF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Layers">
+      <UniqueIdentifier>{157446C0-0116-7196-EAD0-84EAD611F8E6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level">
+      <UniqueIdentifier>{1DAC970D-89C0-BFBE-5242-631EBE15BCEF}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Platform">
       <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform\GLFW">
+      <UniqueIdentifier>{A98C9061-154D-0C98-DE87-55154A075174}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform\OpenGL">
+      <UniqueIdentifier>{1E7D2C1D-8A08-9AE1-9319-1DD6FF23F6E1}</UniqueIdentifier>
     </Filter>
     <Filter Include="Platform\Windows">
       <UniqueIdentifier>{64FBD71A-50F4-F66C-7926-DCF1657ED678}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Collisions\AABB.h">
+      <Filter>Collisions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Collisions\BVTree.h">
+      <Filter>Collisions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Collisions\BoxCollider.h">
+      <Filter>Collisions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Collisions\CapsuleCollider.h">
+      <Filter>Collisions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Collisions\Collider.h">
+      <Filter>Collisions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Collisions\CollisionHandler.h">
+      <Filter>Collisions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Collisions\CollisionSolverModule.h">
+      <Filter>Collisions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Collisions\CollisionUtil.h">
+      <Filter>Collisions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Collisions\Collisions.h">
+      <Filter>Collisions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Collisions\CollisionsModule.h">
+      <Filter>Collisions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Collisions\RaycastHit.h">
+      <Filter>Collisions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Collisions\SphereCollider.h">
+      <Filter>Collisions</Filter>
+    </ClInclude>
     <ClInclude Include="src\Core\Application.h">
       <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Config\CVar.h">
+      <Filter>Core\Config</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Config\CVarRegistry.h">
+      <Filter>Core\Config</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Config\Config.h">
+      <Filter>Core\Config</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Config\ICVar.h">
+      <Filter>Core\Config</Filter>
     </ClInclude>
     <ClInclude Include="src\Core\Core.h">
       <Filter>Core</Filter>
     </ClInclude>
+    <ClInclude Include="src\Core\DebugDraw.h">
+      <Filter>Core</Filter>
+    </ClInclude>
     <ClInclude Include="src\Core\EntryPoint.h">
       <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Geometry\Plane.h">
+      <Filter>Core\Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Geometry\Ray.h">
+      <Filter>Core\Geometry</Filter>
     </ClInclude>
     <ClInclude Include="src\Core\Layer.h">
       <Filter>Core</Filter>
@@ -33,8 +123,50 @@
     <ClInclude Include="src\Core\Log.h">
       <Filter>Core</Filter>
     </ClInclude>
+    <ClInclude Include="src\Core\Math\Math.h">
+      <Filter>Core\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Math\Matrix3.h">
+      <Filter>Core\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Math\Matrix4.h">
+      <Filter>Core\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Math\Quaternion.h">
+      <Filter>Core\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Math\Vector2.h">
+      <Filter>Core\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Math\Vector3.h">
+      <Filter>Core\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Math\Vector4.h">
+      <Filter>Core\Math</Filter>
+    </ClInclude>
     <ClInclude Include="src\Core\Window.h">
       <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ECS\Component'.h">
+      <Filter>ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ECS\Component.h">
+      <Filter>ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ECS\Components\Transform.h">
+      <Filter>ECS\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ECS\Entity'.h">
+      <Filter>ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ECS\Entity.h">
+      <Filter>ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ECS\Primitive.h">
+      <Filter>ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ECS\Transform.h">
+      <Filter>ECS</Filter>
     </ClInclude>
     <ClInclude Include="src\Engine.h" />
     <ClInclude Include="src\Engine_pch.h" />
@@ -50,45 +182,76 @@
     <ClInclude Include="src\Events\MouseEvent.h">
       <Filter>Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\Input\InputManager.h">
+      <Filter>Input</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Layers\ImGuiLayer.h">
+      <Filter>Layers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Level\Level.h">
+      <Filter>Level</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Level\LevelManager.h">
+      <Filter>Level</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\GLFW\imgui_impl_glfw.h">
+      <Filter>Platform\GLFW</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\imgui_impl_opengl3.h">
+      <Filter>Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\imgui_impl_opengl3_loader.h">
+      <Filter>Platform\OpenGL</Filter>
+    </ClInclude>
     <ClInclude Include="src\Platform\Windows\Window.h">
       <Filter>Platform\Windows</Filter>
     </ClInclude>
-    <ClInclude Include="src\Platform\GLFW\imgui_impl_glfw.h" />
-    <ClInclude Include="src\Platform\OpenGL\imgui_impl_opengl3.h" />
-    <ClInclude Include="src\Platform\OpenGL\imgui_impl_opengl3_loader.h" />
-    <ClInclude Include="src\Layers\ImGuiLayer.h" />
-    <ClInclude Include="Object.h" />
-    <ClInclude Include="UID.h" />
-    <ClInclude Include="src\Input\InputManager.h" />
-    <ClInclude Include="src\Core\Math\Math.h" />
-    <ClInclude Include="src\Core\Math\Matrix3.h" />
-    <ClInclude Include="src\Core\Math\Matrix4.h" />
-    <ClInclude Include="src\Core\Math\Quaternion.h" />
-    <ClInclude Include="src\Core\Math\Vector2.h" />
-    <ClInclude Include="src\Core\Math\Vector3.h" />
-    <ClInclude Include="src\Core\Math\Vector4.h" />
-    <ClInclude Include="src\Core\Geometry\Plane.h" />
-    <ClInclude Include="src\Core\Geometry\Ray.h" />
-    <ClInclude Include="src\ECS\Components\Transform.h" />
-    <ClInclude Include="src\Core\DebugDraw.h" />
-    <ClInclude Include="src\ECS\Component%27.h" />
-    <ClInclude Include="src\ECS\Entity%27.h" />
-    <ClInclude Include="src\ECS\Primitive.h" />
-    <ClInclude Include="src\ECS\Transform.h" />
-    <ClInclude Include="src\ECS\Component.h" />
-    <ClInclude Include="src\ECS\Entity.h" />
-    <ClInclude Include="..\..\..\..\..\Downloads\Isetta-Engine-master\Isetta-Engine-master\Isetta\IsettaEngine\Scene\LevelManager.h" />
-    <ClInclude Include="..\..\..\..\..\Downloads\Isetta-Engine-master\Isetta-Engine-master\Isetta\IsettaEngine\Scene\Level.h" />
-    <ClInclude Include="src\Level\Level.h" />
-    <ClInclude Include="src\Level\LevelManager.h" />
-    <ClInclude Include="src\Core\Config\Config.h" />
-    <ClInclude Include="src\Core\Config\CVar.h" />
-    <ClInclude Include="src\Core\Config\CVarRegistry.h" />
-    <ClInclude Include="src\Core\Config\ICVar.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Collisions\AABB.cpp">
+      <Filter>Collisions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Collisions\BVTree.cpp">
+      <Filter>Collisions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Collisions\BoxCollider.cpp">
+      <Filter>Collisions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Collisions\CapsuleCollider.cpp">
+      <Filter>Collisions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Collisions\Collider.cpp">
+      <Filter>Collisions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Collisions\CollisionHandler.cpp">
+      <Filter>Collisions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Collisions\CollisionSolverModule.cpp">
+      <Filter>Collisions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Collisions\Collisions.cpp">
+      <Filter>Collisions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Collisions\CollisionsModule.cpp">
+      <Filter>Collisions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Collisions\SphereCollider.cpp">
+      <Filter>Collisions</Filter>
+    </ClCompile>
     <ClCompile Include="src\Core\Application.cpp">
       <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core\Config\CVar.cpp">
+      <Filter>Core\Config</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core\Config\Config.cpp">
+      <Filter>Core\Config</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core\DebugDraw.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core\Geometry\Plane.cpp">
+      <Filter>Core\Geometry</Filter>
     </ClCompile>
     <ClCompile Include="src\Core\Layer.cpp">
       <Filter>Core</Filter>
@@ -99,36 +262,57 @@
     <ClCompile Include="src\Core\Log.cpp">
       <Filter>Core</Filter>
     </ClCompile>
+    <ClCompile Include="src\Core\Math\Matrix3.cpp">
+      <Filter>Core\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core\Math\Matrix4.cpp">
+      <Filter>Core\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core\Math\Quaternion.cpp">
+      <Filter>Core\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core\Math\Vector2.cpp">
+      <Filter>Core\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core\Math\Vector3.cpp">
+      <Filter>Core\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core\Math\Vector4.cpp">
+      <Filter>Core\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ECS\Component.cpp">
+      <Filter>ECS</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ECS\Entity.cpp">
+      <Filter>ECS</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ECS\Primitive.cpp">
+      <Filter>ECS</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ECS\Transform.cpp">
+      <Filter>ECS</Filter>
+    </ClCompile>
     <ClCompile Include="src\Engine_pch.cpp" />
+    <ClCompile Include="src\Input\InputManager.cpp">
+      <Filter>Input</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Layers\ImGuiLayer.cpp">
+      <Filter>Layers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Level\Level.cpp">
+      <Filter>Level</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Level\LevelManager.cpp">
+      <Filter>Level</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\GLFW\imgui_impl_glfw.cpp">
+      <Filter>Platform\GLFW</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\imgui_impl_opengl3.cpp">
+      <Filter>Platform\OpenGL</Filter>
+    </ClCompile>
     <ClCompile Include="src\Platform\Windows\Window.cpp">
       <Filter>Platform\Windows</Filter>
     </ClCompile>
-    <ClCompile Include="src\Platform\GLFW\imgui_impl_glfw.cpp" />
-    <ClCompile Include="src\Platform\OpenGL\imgui_impl_opengl3.cpp" />
-    <ClCompile Include="src\Layers\ImGuiLayer.cpp" />
-    <ClCompile Include="Object.cpp" />
-    <ClCompile Include="UID.cpp" />
-    <ClCompile Include="src\Input\InputManager.cpp" />
-    <ClCompile Include="src\Core\Math\Matrix3.cpp" />
-    <ClCompile Include="src\Core\Math\Matrix4.cpp" />
-    <ClCompile Include="src\Core\Math\Quaternion.cpp" />
-    <ClCompile Include="src\Core\Math\Vector2.cpp" />
-    <ClCompile Include="src\Core\Math\Vector3.cpp" />
-    <ClCompile Include="src\Core\Math\Vector4.cpp" />
-    <ClCompile Include="src\Core\Geometry\Plane.cpp" />
-    <ClCompile Include="src\Core\DebugDraw.cpp" />
-    <ClCompile Include="src\ECS\Component.cpp" />
-    <ClCompile Include="src\ECS\Entity.cpp" />
-    <ClCompile Include="src\ECS\Primitive.cpp" />
-    <ClCompile Include="src\ECS\Transform.cpp" />
-    <ClCompile Include="..\..\..\..\..\Downloads\Isetta-Engine-master\Isetta-Engine-master\Isetta\IsettaEngine\Scene\Level.cpp" />
-    <ClCompile Include="..\..\..\..\..\Downloads\Isetta-Engine-master\Isetta-Engine-master\Isetta\IsettaEngine\Scene\LevelManager.cpp" />
-    <ClCompile Include="src\Level\Level.cpp" />
-    <ClCompile Include="src\Level\LevelManager.cpp" />
-    <ClCompile Include="src\Core\Config\Config.cpp" />
-    <ClCompile Include="src\Core\Config\CVar.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>

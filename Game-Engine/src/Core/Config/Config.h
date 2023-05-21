@@ -10,7 +10,7 @@
 #include "Core/Config/CVar.h"
 #include "Core/Config/CVarRegistry.h"
 #include "Core/DataStructures/Array.h"
-#include "Core/Debug/Logger.h"
+#include "Core/Log.h"
 #include "Core/IsettaAlias.h"
 #include "Core/Memory/MemoryManager.h"
 #include "EngineLoop.h"
@@ -22,7 +22,7 @@
 #include "Networking/NetworkingModule.h"
 #include "Scene/LevelManager.h"
 
-namespace Isetta {
+namespace Engine {
 #define CONFIG_VAL(expr) Isetta::Config::Instance().expr.GetVal()
 #define CONFIG_M_VAL(mod, expr) Isetta::Config::Instance().mod.expr.GetVal()
 

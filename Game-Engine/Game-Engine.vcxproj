@@ -164,15 +164,31 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\..\Downloads\Isetta-Engine-master\Isetta-Engine-master\Isetta\IsettaEngine\Scene\Level.h" />
-    <ClInclude Include="..\..\..\..\..\Downloads\Isetta-Engine-master\Isetta-Engine-master\Isetta\IsettaEngine\Scene\LevelManager.h" />
-    <ClInclude Include="src\Core\Config\Config.h" />
+    <ClInclude Include="src\Collisions\AABB.h" />
+    <ClInclude Include="src\Collisions\BVTree.h" />
+    <ClInclude Include="src\Collisions\BoxCollider.h" />
+    <ClInclude Include="src\Collisions\CapsuleCollider.h" />
+    <ClInclude Include="src\Collisions\Collider.h" />
+    <ClInclude Include="src\Collisions\CollisionHandler.h" />
+    <ClInclude Include="src\Collisions\CollisionSolverModule.h" />
+    <ClInclude Include="src\Collisions\CollisionUtil.h" />
+    <ClInclude Include="src\Collisions\Collisions.h" />
+    <ClInclude Include="src\Collisions\CollisionsModule.h" />
+    <ClInclude Include="src\Collisions\RaycastHit.h" />
+    <ClInclude Include="src\Collisions\SphereCollider.h" />
+    <ClInclude Include="src\Core\Application.h" />
     <ClInclude Include="src\Core\Config\CVar.h" />
     <ClInclude Include="src\Core\Config\CVarRegistry.h" />
+    <ClInclude Include="src\Core\Config\Config.h" />
     <ClInclude Include="src\Core\Config\ICVar.h" />
+    <ClInclude Include="src\Core\Core.h" />
     <ClInclude Include="src\Core\DebugDraw.h" />
+    <ClInclude Include="src\Core\EntryPoint.h" />
     <ClInclude Include="src\Core\Geometry\Plane.h" />
     <ClInclude Include="src\Core\Geometry\Ray.h" />
+    <ClInclude Include="src\Core\Layer.h" />
+    <ClInclude Include="src\Core\LayerStack.h" />
+    <ClInclude Include="src\Core\Log.h" />
     <ClInclude Include="src\Core\Math\Math.h" />
     <ClInclude Include="src\Core\Math\Matrix3.h" />
     <ClInclude Include="src\Core\Math\Matrix4.h" />
@@ -180,44 +196,48 @@
     <ClInclude Include="src\Core\Math\Vector2.h" />
     <ClInclude Include="src\Core\Math\Vector3.h" />
     <ClInclude Include="src\Core\Math\Vector4.h" />
-    <ClInclude Include="src\ECS\Component%27.h" />
+    <ClInclude Include="src\Core\Window.h" />
+    <ClInclude Include="src\ECS\Component'.h" />
     <ClInclude Include="src\ECS\Component.h" />
     <ClInclude Include="src\ECS\Components\Transform.h" />
-    <ClInclude Include="src\ECS\Entity%27.h" />
+    <ClInclude Include="src\ECS\Entity'.h" />
     <ClInclude Include="src\ECS\Entity.h" />
     <ClInclude Include="src\ECS\Primitive.h" />
     <ClInclude Include="src\ECS\Transform.h" />
-    <ClInclude Include="src\Input\InputManager.h" />
-    <ClInclude Include="Object.h" />
-    <ClInclude Include="src\Layers\ImGuiLayer.h" />
-    <ClInclude Include="src\Core\Application.h" />
-    <ClInclude Include="src\Core\Core.h" />
-    <ClInclude Include="src\Core\EntryPoint.h" />
-    <ClInclude Include="src\Core\Layer.h" />
-    <ClInclude Include="src\Core\LayerStack.h" />
-    <ClInclude Include="src\Core\Log.h" />
-    <ClInclude Include="src\Core\Window.h" />
     <ClInclude Include="src\Engine.h" />
     <ClInclude Include="src\Engine_pch.h" />
     <ClInclude Include="src\Events\ApplicationEvent.h" />
     <ClInclude Include="src\Events\Event.h" />
     <ClInclude Include="src\Events\KeyEvent.h" />
     <ClInclude Include="src\Events\MouseEvent.h" />
+    <ClInclude Include="src\Input\InputManager.h" />
+    <ClInclude Include="src\Layers\ImGuiLayer.h" />
     <ClInclude Include="src\Level\Level.h" />
     <ClInclude Include="src\Level\LevelManager.h" />
     <ClInclude Include="src\Platform\GLFW\imgui_impl_glfw.h" />
     <ClInclude Include="src\Platform\OpenGL\imgui_impl_opengl3.h" />
     <ClInclude Include="src\Platform\OpenGL\imgui_impl_opengl3_loader.h" />
     <ClInclude Include="src\Platform\Windows\Window.h" />
-    <ClInclude Include="UID.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\..\Downloads\Isetta-Engine-master\Isetta-Engine-master\Isetta\IsettaEngine\Scene\Level.cpp" />
-    <ClCompile Include="..\..\..\..\..\Downloads\Isetta-Engine-master\Isetta-Engine-master\Isetta\IsettaEngine\Scene\LevelManager.cpp" />
-    <ClCompile Include="src\Core\Config\Config.cpp" />
+    <ClCompile Include="src\Collisions\AABB.cpp" />
+    <ClCompile Include="src\Collisions\BVTree.cpp" />
+    <ClCompile Include="src\Collisions\BoxCollider.cpp" />
+    <ClCompile Include="src\Collisions\CapsuleCollider.cpp" />
+    <ClCompile Include="src\Collisions\Collider.cpp" />
+    <ClCompile Include="src\Collisions\CollisionHandler.cpp" />
+    <ClCompile Include="src\Collisions\CollisionSolverModule.cpp" />
+    <ClCompile Include="src\Collisions\Collisions.cpp" />
+    <ClCompile Include="src\Collisions\CollisionsModule.cpp" />
+    <ClCompile Include="src\Collisions\SphereCollider.cpp" />
+    <ClCompile Include="src\Core\Application.cpp" />
     <ClCompile Include="src\Core\Config\CVar.cpp" />
+    <ClCompile Include="src\Core\Config\Config.cpp" />
     <ClCompile Include="src\Core\DebugDraw.cpp" />
     <ClCompile Include="src\Core\Geometry\Plane.cpp" />
+    <ClCompile Include="src\Core\Layer.cpp" />
+    <ClCompile Include="src\Core\LayerStack.cpp" />
+    <ClCompile Include="src\Core\Log.cpp" />
     <ClCompile Include="src\Core\Math\Matrix3.cpp" />
     <ClCompile Include="src\Core\Math\Matrix4.cpp" />
     <ClCompile Include="src\Core\Math\Quaternion.cpp" />
@@ -228,22 +248,16 @@
     <ClCompile Include="src\ECS\Entity.cpp" />
     <ClCompile Include="src\ECS\Primitive.cpp" />
     <ClCompile Include="src\ECS\Transform.cpp" />
-    <ClCompile Include="src\Input\InputManager.cpp" />
-    <ClCompile Include="Object.cpp" />
-    <ClCompile Include="src\Layers\ImGuiLayer.cpp" />
-    <ClCompile Include="src\Core\Application.cpp" />
-    <ClCompile Include="src\Core\Layer.cpp" />
-    <ClCompile Include="src\Core\LayerStack.cpp" />
-    <ClCompile Include="src\Core\Log.cpp" />
     <ClCompile Include="src\Engine_pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="src\Input\InputManager.cpp" />
+    <ClCompile Include="src\Layers\ImGuiLayer.cpp" />
     <ClCompile Include="src\Level\Level.cpp" />
     <ClCompile Include="src\Level\LevelManager.cpp" />
     <ClCompile Include="src\Platform\GLFW\imgui_impl_glfw.cpp" />
     <ClCompile Include="src\Platform\OpenGL\imgui_impl_opengl3.cpp" />
     <ClCompile Include="src\Platform\Windows\Window.cpp" />
-    <ClCompile Include="UID.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="vendor\GLFW\GLFW.vcxproj">
@@ -255,9 +269,6 @@
     <ProjectReference Include="vendor\imgui\ImGui.vcxproj">
       <Project>{C0FF640D-2C14-8DBE-F595-301E616989EF}</Project>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

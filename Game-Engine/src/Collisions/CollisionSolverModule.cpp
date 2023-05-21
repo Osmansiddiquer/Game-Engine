@@ -1,3 +1,5 @@
+#include "Engine_pch.h"
+
 #include "CollisionSolverModule.h"
 #include "Collisions/CollisionUtil.h"
 #include "Collisions/CollisionsModule.h"
@@ -8,9 +10,7 @@
 #include "Collisions/Collider.h"
 #include "Collisions/SphereCollider.h"
 
-#include "Core/Math/Vector3.h"
-#include "Core/Math/Vector4.h"
-
+#include "Core/Math/Math.h"
 #include "Core/Debug/DebugDraw.h"
 #include "brofiler/ProfilerCore/Brofiler.h"
 
@@ -47,21 +47,21 @@ Collision CollisionSolverModule::Solve(Collider* collider, Collider* other) {
       int numEdges = 0;
       int maxAxis = 0;
       int minAxis = 0;
-      float maxDist = (extents[0] - Math::Util::Abs(p[0])) * scale[0];
-      float minDist = (extents[0] - Math::Util::Abs(p[0])) * scale[0];
+      float maxDist = (extents[0] - std::Abs(p[0])) * scale[0];
+      float minDist = (extents[0] - std::Abs(p[0])) * scale[0];
 
       for (int i = 0; i < Math::Vector3::ELEMENT_COUNT; ++i) {
-        if ((extents[i] - Math::Util::Abs(p[i])) * scale[i] < minDist) {
-          minDist = (extents[i] - Math::Util::Abs(p[i])) * scale[i];
+        if ((extents[i] - std::Abs(p[i])) * scale[i] < minDist) {
+          minDist = (extents[i] - std::Abs(p[i])) * scale[i];
           minAxis = i;
         }
 
-        if ((extents[i] - Math::Util::Abs(p[i])) * scale[i] > maxDist) {
-          maxDist = (extents[i] - Math::Util::Abs(p[i])) * scale[i];
+        if ((extents[i] - std::Abs(p[i])) * scale[i] > maxDist) {
+          maxDist = (extents[i] - std::Abs(p[i])) * scale[i];
           maxAxis = i;
         }
 
-        if (Math::Util::Abs(p[i]) >= extents[i]) ++numEdges;
+        if (std::Abs(p[i]) >= extents[i]) ++numEdges;
       }
 
       // If we're hitting an edge, then we should push based off of object
@@ -78,9 +78,9 @@ Collision CollisionSolverModule::Solve(Collider* collider, Collider* other) {
             multiplier) + Math::Vector3::Scale(collider->GetWorldCenter(), nMultiplier);
       } else {
         Math::Vector3 axis = box->transform->GetAxis(minAxis);
-        axis.x = Math::Util::Abs(axis.x);
-        axis.y = Math::Util::Abs(axis.y);
-        axis.z = Math::Util::Abs(axis.z);
+        axis.x = std::Abs(axis.x);
+        axis.y = std::Abs(axis.y);
+        axis.z = std::Abs(axis.z);
         point = collider->GetWorldCenter() +
                 Math::Vector3::Scale(
                     box->GetWorldCenter() - collider->GetWorldCenter(), axis);
@@ -107,22 +107,22 @@ Collision CollisionSolverModule::Solve(Collider* collider, Collider* other) {
 
       int numEdges = 0;
       int minAxis = 0;
-      float minDist = (extents[0] - Math::Util::Abs(p[0])) * scale[0];
+      float minDist = (extents[0] - std::Abs(p[0])) * scale[0];
 
       for (int i = 0; i < Math::Vector3::ELEMENT_COUNT; ++i) {
         hitPoint[i] =
-            Math::Util::Min(Math::Util::Max(p[i], -extents[i]), extents[i]);
+            std::min(std::max(p[i], -extents[i]), extents[i]);
 
-        if ((extents[i] - Math::Util::Abs(p[i])) * scale[i] < minDist) {
-          minDist = (extents[i] - Math::Util::Abs(p[i])) * scale[i];
+        if ((extents[i] - std::Abs(p[i])) * scale[i] < minDist) {
+          minDist = (extents[i] - std::Abs(p[i])) * scale[i];
           minAxis = i;
         }
 
-        if (Math::Util::Abs(hitPoint[i]) >= extents[i]) ++numEdges;
+        if (std::Abs(hitPoint[i]) >= extents[i]) ++numEdges;
       }
 
       hitPoint[minAxis] =
-          Math::Util::Sign(hitPoint[minAxis]) * extents[minAxis];
+          std::Sign(hitPoint[minAxis]) * extents[minAxis];
 
       collision.hitPoint =
           box->transform->WorldPosFromLocalPos(hitPoint + box->center);
@@ -199,7 +199,7 @@ Math::Vector3 CollisionSolverModule::Resolve(Collider* collider1,
 
   float push = Math::Vector3::Dot((collision2.hitPoint - collision1.hitPoint),
                                   responseDirection);
-  return (push + Math::Util::Sign(push) * EPS) * responseDirection;
+  return (push + std::Sign(push) * EPS) * responseDirection;
 }
 
 void CollisionSolverModule::Update() {

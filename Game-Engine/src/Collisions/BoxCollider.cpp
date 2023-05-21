@@ -1,3 +1,5 @@
+#include "Engine_pch.h"
+
 #include "Collisions/BoxCollider.h"
 #include "Collisions/CapsuleCollider.h"
 #include "Collisions/CollisionsModule.h"
@@ -5,7 +7,7 @@
 
 #include "Core/Debug/DebugDraw.h"
 #include "Core/Geometry/Ray.h"
-#include "Core/Math/Matrix4.h"
+#include "Core/Math/Math.h"
 #include "Scene/Transform.h" {
 #if _EDITOR
 void BoxCollider::Update() {
@@ -33,11 +35,11 @@ bool BoxCollider::Raycast(const Ray& ray, RaycastHit* const hitInfo,
     t[2 * i + 1] = (e[i] - o[i]) * invD[i];
   }
   tmin =
-      Math::Util::Max({Math::Util::Min(t[0], t[1]), Math::Util::Min(t[2], t[3]),
-                       Math::Util::Min(t[4], t[5])});
+      std::max({std::min(t[0], t[1]), std::min(t[2], t[3]),
+                       std::min(t[4], t[5])});
   tmax =
-      Math::Util::Min({Math::Util::Max(t[0], t[1]), Math::Util::Max(t[2], t[3]),
-                       Math::Util::Max(t[4], t[5])});
+      std::min({std::max(t[0], t[1]), std::max(t[2], t[3]),
+                       std::max(t[4], t[5])});
   if (tmax < 0 || tmin > tmax) return false;
   if (tmin < 0) tmin = tmax;
   if (tmin > maxDistance) return false;
@@ -51,7 +53,7 @@ bool BoxCollider::Raycast(const Ray& ray, RaycastHit* const hitInfo,
     float tmp = Math::Vector3::Dot(to, transform->GetAxis(i));
     if (tmp > tmax) {
       tmax = tmp;
-      n = Math::Util::Sign(tmp) * transform->GetAxis(i);
+      n = std::Sign(tmp) * transform->GetAxis(i);
     }
   }
 
@@ -68,9 +70,9 @@ AABB BoxCollider::GetAABB() {
   const Math::Vector3 size = GetWorldSize();
   Math::Vector3 aabbSize = size;
   for (int i = 0; i < Math::Vector3::ELEMENT_COUNT; ++i)
-    aabbSize[i] = Math::Util::Abs(transform->GetLeft()[i]) * size.x +
-                  Math::Util::Abs(transform->GetUp()[i]) * size.y +
-                  Math::Util::Abs(transform->GetForward()[i]) * size.z;
+    aabbSize[i] = std::Abs(transform->GetLeft()[i]) * size.x +
+                  std::Abs(transform->GetUp()[i]) * size.y +
+                  std::Abs(transform->GetForward()[i]) * size.z;
   return AABB{GetWorldCenter(), aabbSize};
 }
 

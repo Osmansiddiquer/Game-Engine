@@ -1,7 +1,7 @@
 #pragma once
 #include "Collisions/AABB.h"
 #include "Core/Color.h"
-#include "Core/Math/Vector3.h"
+#include "Core/Math/Math.h"
 #include "Scene/Component.h"
 #include "Scene/Transform.h"
 

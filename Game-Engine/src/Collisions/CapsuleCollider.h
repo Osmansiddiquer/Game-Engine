@@ -103,13 +103,13 @@ bool Raycast(const Ray& ray, RaycastHit* const hitInfo,
 inline float GetWorldRadius() const {
   switch (direction) {
     case Direction::X_AXIS:
-      return radius * Math::Util::Max(transform->GetWorldScale().y,
+      return radius * std::max(transform->GetWorldScale().y,
                                       transform->GetWorldScale().z);
     case Direction::Y_AXIS:
-      return radius * Math::Util::Max(transform->GetWorldScale().x,
+      return radius * std::max(transform->GetWorldScale().x,
                                       transform->GetWorldScale().z);
     case Direction::Z_AXIS:
-      return radius * Math::Util::Max(transform->GetWorldScale().x,
+      return radius * std::max(transform->GetWorldScale().x,
                                       transform->GetWorldScale().y);
   }
 }

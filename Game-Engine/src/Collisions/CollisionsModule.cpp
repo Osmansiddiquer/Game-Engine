@@ -1,11 +1,10 @@
-#include "Collisions/CollisionsModule.h"
+#include "Engine_pch.h"
 
+#include "Collisions/CollisionsModule.h"
 #include "Collisions/AABB.h"
 #include "Collisions/RaycastHit.h"
 #include "Core/Geometry/Ray.h"
-#include "Core/Math/Matrix3.h"
-#include "Core/Math/Vector3.h"
-#include "Core/Math/Vector4.h"
+#include "Core/Math/Math.h"
 #include "Scene/Entity.h"
 #include "Scene/Transform.h"
 #include "brofiler/ProfilerCore/Brofiler.h"
@@ -123,7 +122,7 @@ bool CollisionsModule::Intersection(const BoxCollider &a,
                     Math::Vector3::Dot(t, a.transform->GetForward())};
   for (int i = 0; i < Math::Matrix3::ROW_COUNT; ++i) {
     for (int j = 0; j < Math::Matrix3::ROW_COUNT; ++j) {
-      absRot[i][j] = Math::Util::Abs(rot[i][j]) + Math::Util::EPSILON;
+      absRot[i][j] = std::Abs(rot[i][j]) + std::EPSILON;
     }
   }
 
@@ -134,70 +133,70 @@ bool CollisionsModule::Intersection(const BoxCollider &a,
     ra = aExtents[i];
     rb = bExtents[0] * absRot[i][0] + bExtents[1] * absRot[i][1] +
          bExtents[2] * absRot[i][2];
-    if (Math::Util::Abs(t[i]) > ra + rb) return 0;
+    if (std::Abs(t[i]) > ra + rb) return 0;
   }
   // Test axes L = B0, L = B1, L = B2
   for (int i = 0; i < 3; ++i) {
     ra = aExtents[0] * absRot[0][i] + aExtents[1] * absRot[1][i] +
          aExtents[2] * absRot[2][i];
     rb = bExtents[i];
-    if (Math::Util::Abs(t[0] * rot[0][i] + t[1] * rot[1][i] +
+    if (std::Abs(t[0] * rot[0][i] + t[1] * rot[1][i] +
                         t[2] * rot[2][i]) > ra + rb)
       return 0;
   }
   // Test axis L = A0 x B0
   ra = aExtents[1] * absRot[2][0] + aExtents[2] * absRot[1][0];
   rb = bExtents[1] * absRot[0][2] + bExtents[2] * absRot[0][1];
-  if (Math::Util::Abs(t[2] * rot[1][0] - t[1] * rot[2][0]) > ra + rb) {
+  if (std::Abs(t[2] * rot[1][0] - t[1] * rot[2][0]) > ra + rb) {
     return false;
   }
   // Test axis L = A0 x B1
   ra = aExtents[1] * absRot[2][1] + aExtents[2] * absRot[1][1];
   rb = bExtents[0] * absRot[0][2] + bExtents[2] * absRot[0][0];
-  if (Math::Util::Abs(t[2] * rot[1][1] - t[1] * rot[2][1]) > ra + rb) {
+  if (std::Abs(t[2] * rot[1][1] - t[1] * rot[2][1]) > ra + rb) {
     return false;
   }
   // Test axis L = A0 x B2
   ra = aExtents[1] * absRot[2][2] + aExtents[2] * absRot[1][2];
   rb = bExtents[0] * absRot[0][1] + bExtents[1] * absRot[0][0];
-  if (Math::Util::Abs(t[2] * rot[1][2] - t[1] * rot[2][2]) > ra + rb) {
+  if (std::Abs(t[2] * rot[1][2] - t[1] * rot[2][2]) > ra + rb) {
     return false;
   }
   // Test axis L = A1 x B0
   ra = aExtents[0] * absRot[2][0] + aExtents[2] * absRot[0][0];
   rb = bExtents[1] * absRot[1][2] + bExtents[2] * absRot[1][1];
 
-  if (Math::Util::Abs(t[0] * rot[2][0] - t[2] * rot[0][0]) > ra + rb) {
+  if (std::Abs(t[0] * rot[2][0] - t[2] * rot[0][0]) > ra + rb) {
     return false;
   }
   // Test axis L = A1 x B1
   ra = aExtents[0] * absRot[2][1] + aExtents[2] * absRot[0][1];
   rb = bExtents[0] * absRot[1][2] + bExtents[2] * absRot[1][0];
-  if (Math::Util::Abs(t[0] * rot[2][1] - t[2] * rot[0][1]) > ra + rb) {
+  if (std::Abs(t[0] * rot[2][1] - t[2] * rot[0][1]) > ra + rb) {
     return false;
   }
   // Test axis L = A1 x B2
   ra = aExtents[0] * absRot[2][2] + aExtents[2] * absRot[0][2];
   rb = bExtents[0] * absRot[1][1] + bExtents[1] * absRot[1][0];
-  if (Math::Util::Abs(t[0] * rot[2][2] - t[2] * rot[0][2]) > ra + rb) {
+  if (std::Abs(t[0] * rot[2][2] - t[2] * rot[0][2]) > ra + rb) {
     return false;
   }
   // Test axis L = A2 x B0
   ra = aExtents[0] * absRot[1][0] + aExtents[1] * absRot[0][0];
   rb = bExtents[1] * absRot[2][2] + bExtents[2] * absRot[2][1];
-  if (Math::Util::Abs(t[1] * rot[0][0] - t[0] * rot[1][0]) > ra + rb) {
+  if (std::Abs(t[1] * rot[0][0] - t[0] * rot[1][0]) > ra + rb) {
     return false;
   }
   // Test axis L = A2 x B1
   ra = aExtents[0] * absRot[1][1] + aExtents[1] * absRot[0][1];
   rb = bExtents[0] * absRot[2][2] + bExtents[2] * absRot[2][0];
-  if (Math::Util::Abs(t[1] * rot[0][1] - t[0] * rot[1][1]) > ra + rb) {
+  if (std::Abs(t[1] * rot[0][1] - t[0] * rot[1][1]) > ra + rb) {
     return false;
   }
   // Test axis L = A2 x B2
   ra = aExtents[0] * absRot[1][2] + aExtents[1] * absRot[0][2];
   rb = bExtents[0] * absRot[2][1] + bExtents[1] * absRot[2][0];
-  if (Math::Util::Abs(t[1] * rot[0][2] - t[0] * rot[1][2]) > ra + rb) {
+  if (std::Abs(t[1] * rot[0][2] - t[0] * rot[1][2]) > ra + rb) {
     return false;
   }
   // Since no separating axis is found, the OBBs must be intersecting
@@ -227,14 +226,14 @@ bool CollisionsModule::Intersection(const BoxCollider &box,
   Math::Vector3 p0 = capsule.GetWorldCenter() - dir;
   Math::Vector3 p1 = capsule.GetWorldCenter() + dir;
   return SqDistSegmentOBB(p0, p1, box) <=
-         Math::Util::Square(capsule.radius * radiusScale);
+         std::Square(capsule.radius * radiusScale);
 
 }
 bool CollisionsModule::Intersection(const SphereCollider &a,
                                     const SphereCollider &b) {
   PROFILE
   return (a.GetWorldCenter() - b.GetWorldCenter()).SqrMagnitude() <=
-         Math::Util::Square(a.GetWorldRadius() + b.GetWorldRadius());
+         std::Square(a.GetWorldRadius() + b.GetWorldRadius());
 }
 bool CollisionsModule::Intersection(const SphereCollider &sphere,
                                     const BoxCollider &box) {
@@ -255,7 +254,7 @@ bool CollisionsModule::Intersection(const SphereCollider &sphere,
   Math::Vector3 p0 = capsule.GetWorldCenter() - dir;
   Math::Vector3 p1 = capsule.GetWorldCenter() + dir;
   float distSq = SqDistPointSegment(p0, p1, sphere.GetWorldCenter());
-  return distSq <= Math::Util::Square(sphere.GetWorldRadius() +
+  return distSq <= std::Square(sphere.GetWorldRadius() +
                                       capsule.radius * radiusScale);
 }
 bool CollisionsModule::Intersection(const CapsuleCollider &a,
@@ -285,7 +284,7 @@ bool CollisionsModule::Intersection(const CapsuleCollider &a,
   Math::Vector3 ac, bc;
   float distSq = ClosestPtSegmentSegment(aP0, aP1, bP0, bP1, &s, &t, &ac, &bc);
 
-  return distSq <= Math::Util::Square(a.radius * arScale + b.radius * brScale);
+  return distSq <= std::Square(a.radius * arScale + b.radius * brScale);
 }
 bool CollisionsModule::Intersection(const CapsuleCollider &capsule,
                                     const BoxCollider &box) {
@@ -329,30 +328,30 @@ bool CollisionsModule::Intersection(const Math::Vector3 &p0,
   Math::Vector3 m = 0.5f * (p0 + p1);
   Math::Vector3 d = p1 - m;
   m -= c;
-  float adx = Math::Util::Abs(d.x);
-  if (Math::Util::Abs(m.x) > e.x + adx) {
+  float adx = std::Abs(d.x);
+  if (std::Abs(m.x) > e.x + adx) {
     return false;
   }
-  float ady = Math::Util::Abs(d.y);
-  if (Math::Util::Abs(m.y) > e.y + ady) {
+  float ady = std::Abs(d.y);
+  if (std::Abs(m.y) > e.y + ady) {
     return false;
   }
-  float adz = Math::Util::Abs(d.z);
-  if (Math::Util::Abs(m.z) > e.z + adz) {
+  float adz = std::Abs(d.z);
+  if (std::Abs(m.z) > e.z + adz) {
     return false;
   }
 
-  adx += Math::Util::EPSILON;
-  ady += Math::Util::EPSILON;
-  adz += Math::Util::EPSILON;
+  adx += std::EPSILON;
+  ady += std::EPSILON;
+  adz += std::EPSILON;
 
-  if (Math::Util::Abs(m.y * d.z - m.z * d.y) > e.y * adz + e.z * ady) {
+  if (std::Abs(m.y * d.z - m.z * d.y) > e.y * adz + e.z * ady) {
     return false;
   }
-  if (Math::Util::Abs(m.z * d.x - m.x * d.z) > e.x * adz + e.z * adx) {
+  if (std::Abs(m.z * d.x - m.x * d.z) > e.x * adz + e.z * adx) {
     return false;
   }
-  if (Math::Util::Abs(m.y * d.z - m.y * d.x) > e.x * ady + e.y * adx) {
+  if (std::Abs(m.y * d.z - m.y * d.x) > e.x * ady + e.y * adx) {
     return false;
   }
 
@@ -427,24 +426,24 @@ float CollisionsModule::ClosestPtSegmentSegment(
   float f = Math::Vector3::Dot(d2, r);
 
   // Check if either or both segments degenerate into points
-  if (a <= Math::Util::EPSILON && e <= Math::Util::EPSILON) {
+  if (a <= std::EPSILON && e <= std::EPSILON) {
     // Both segments degenerate into points
     s = t = 0.0f;
     c1 = p0;
     c2 = q0;
     return Math::Vector3::Dot(c1 - c2, c1 - c2);
   }
-  if (a <= Math::Util::EPSILON) {
+  if (a <= std::EPSILON) {
     // First segment degenerates into a point
     s = 0.0f;
     t = f / e;  // s = 0 => t = (b*s + f) / e = f / e
-    t = Math::Util::Clamp01(t);
+    t = std::Clamp01(t);
   } else {
     float c = Math::Vector3::Dot(d1, r);
-    if (e <= Math::Util::EPSILON) {
+    if (e <= std::EPSILON) {
       // Second segment degenerates into a point
       t = 0.0f;
-      s = Math::Util::Clamp01(-c / a);  // t = 0 => s = (b*t - c) / a = -c / a
+      s = std::Clamp01(-c / a);  // t = 0 => s = (b*t - c) / a = -c / a
     } else {
       // The general nondegenerate case starts here
       float b = Math::Vector3::Dot(d1, d2);
@@ -453,7 +452,7 @@ float CollisionsModule::ClosestPtSegmentSegment(
                                     // point on L1 to L2 and clamp to segment
                                     // S1. Else pick arbitrary s (here 0)
       if (denom != 0.0f) {
-        s = Math::Util::Clamp01((b * f - c * e) / denom);
+        s = std::Clamp01((b * f - c * e) / denom);
       } else {
         s = 0.0f;
       }
@@ -465,10 +464,10 @@ float CollisionsModule::ClosestPtSegmentSegment(
       // and clamp s to [0, 1]
       if (t < 0.0f) {
         t = 0.0f;
-        s = Math::Util::Clamp01(-c / a);
+        s = std::Clamp01(-c / a);
       } else if (t > 1.0f) {
         t = 1.0f;
-        s = Math::Util::Clamp01((b - c) / a);
+        s = std::Clamp01((b - c) / a);
       }
     }
   }
@@ -493,11 +492,11 @@ float CollisionsModule::ClosestPtRaySegment(
                                                // S2, always nonnegative
   float f = Math::Vector3::Dot(ray.GetDirection(), r);
 
-  if (a <= Math::Util::EPSILON) {
+  if (a <= std::EPSILON) {
     // First segment degenerates into a point
     tSeg = 0.0f;
     tRay = f / e;  // s = 0 => t = (b*s + f) / e = f / e
-    tRay = Math::Util::Max(tRay, 0.f);
+    tRay = std::max(tRay, 0.f);
   } else {
     float c = Math::Vector3::Dot(d, r);
     // The general nondegenerate case starts here
@@ -507,7 +506,7 @@ float CollisionsModule::ClosestPtRaySegment(
                                   // point on L1 to L2 and clamp to segment
                                   // S1. Else pick arbitrary s (here 0)
     if (denom != 0.0f) {
-      tSeg = Math::Util::Clamp01((b * f - c * e) / denom);
+      tSeg = std::Clamp01((b * f - c * e) / denom);
     } else {
       tSeg = 0.0f;
     }
@@ -519,7 +518,7 @@ float CollisionsModule::ClosestPtRaySegment(
     // and clamp s to [0, 1]
     if (tRay < 0.0f) {
       tRay = 0.0f;
-      tSeg = Math::Util::Clamp01(-c / a);
+      tSeg = std::Clamp01(-c / a);
     }
   }
   cRay = ray.GetPoint(tRay);
@@ -529,11 +528,11 @@ float CollisionsModule::ClosestPtRaySegment(
 Math::Vector3 CollisionsModule::ClosestPtPointAABB(const Math::Vector3 &point,
                                                    const AABB &aabb) {
   Math::Vector3 pt;
-  pt.x = Math::Util::Min(Math::Util::Max(point.x, aabb.GetMin().x),
+  pt.x = std::min(std::max(point.x, aabb.GetMin().x),
                          aabb.GetMax().x);
-  pt.y = Math::Util::Min(Math::Util::Max(point.y, aabb.GetMin().y),
+  pt.y = std::min(std::max(point.y, aabb.GetMin().y),
                          aabb.GetMax().y);
-  pt.z = Math::Util::Min(Math::Util::Max(point.z, aabb.GetMin().z),
+  pt.z = std::min(std::max(point.z, aabb.GetMin().z),
                          aabb.GetMax().z);
   return pt;
 }
@@ -565,8 +564,8 @@ Math::Vector3 CollisionsModule::ClosestPtLineOBB(const Line &line,
 
   int perp = 0;
   for (int i = 0; i < Math::Vector3::ELEMENT_COUNT; ++i) {
-    if (Math::Util::Abs(Math::Vector3::Dot(
-            dir, Math::Matrix3::identity.GetRow(i))) < Math::Util::EPSILON)
+    if (std::Abs(Math::Vector3::Dot(
+            dir, Math::Matrix3::identity.GetRow(i))) < std::EPSILON)
       ++perp;
   }
   switch (perp) {
@@ -578,9 +577,9 @@ Math::Vector3 CollisionsModule::ClosestPtLineOBB(const Line &line,
       // LOG_INFO(Debug::Channel::Collisions, "Case 2");
       int x = -1;
       for (int i = 0; i < Math::Vector3::ELEMENT_COUNT; ++i) {
-        if (Math::Util::Abs(
+        if (std::Abs(
                 Math::Vector3::Dot(dir, Math::Matrix3::identity.GetRow(i))) >
-            Math::Util::EPSILON) {
+            std::EPSILON) {
           x = i;
           break;
         }
@@ -620,9 +619,9 @@ Math::Vector3 CollisionsModule::ClosestPtLineOBB(const Line &line,
       // LOG_INFO(Debug::Channel::Collisions, "Case 1");
       int z = -1;
       for (int i = 0; i < Math::Vector3::ELEMENT_COUNT; ++i) {
-        if (Math::Util::Abs(
+        if (std::Abs(
                 Math::Vector3::Dot(dir, Math::Matrix3::identity.GetRow(i))) <
-            Math::Util::EPSILON) {
+            std::EPSILON) {
           z = i;
           break;
         }
@@ -904,13 +903,13 @@ bool CollisionsModule::RaySphereIntersectLimited(
     t = 0;
     return false;
   } else {
-    t = -(toADot + Math::Util::Sqrt(q)) / toSq;
+    t = -(toADot + std::Sqrt(q)) / toSq;
     if (t < 0 || t > 1) {
       t = INFINITY;
       return false;
     }
     float d = SqDistanceToAABB(-extents, extents, to * t + start);
-    if (Math::Util::Abs(d - radius * radius) > Math::Util::EPSILON) {
+    if (std::Abs(d - radius * radius) > std::EPSILON) {
       t = INFINITY;
       return false;
     }

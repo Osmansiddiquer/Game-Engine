@@ -1,6 +1,7 @@
 #pragma once
 #include "Core.h"
 #include "LayerStack.h"
+#include "Input/InputManager.h"
 #include "Window.h"
 namespace Engine 
 {
@@ -10,6 +11,7 @@ namespace Engine
 		bool m_running = true;
 		LayerStack m_layerStack;
 		static Application* s_Instance;
+		InputManager m_InputManager;
 	public:
 		Application();
 		virtual ~Application();

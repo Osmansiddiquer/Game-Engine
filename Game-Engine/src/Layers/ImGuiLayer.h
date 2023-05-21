@@ -16,13 +16,13 @@ namespace Engine
 		void OnUpdate();
 		void OnEvent(Event& e);
 	private:
-		void OnKeyPressedEvent(KeyPressedEvent& e);
-		void OnMouseMovedEvent(MouseMovedEvent& e);
-		void OnKeyReleasedEvent(KeyReleasedEvent& e);
-		void OnMousePressedEvent(MouseButtonPressedEvent& e);
-		void OnMouseReleasedEvent(MouseButtonReleasedEvent& e);
-		void OnMouseScrolledEvent(MouseScrolledEvent& e);
-		void OnWindowResizeEvent(WindowResizeEvent& e);
+		void OnKeyPressedEvent(Event& e);
+		void OnMouseMovedEvent(Event& e);
+		void OnKeyReleasedEvent(Event& e);
+		void OnMousePressedEvent(Event& e);
+		void OnMouseReleasedEvent(Event& e);
+		void OnMouseScrolledEvent(Event& e);
+		void OnWindowResizeEvent(Event& e);
 	};
 }
 

@@ -24,8 +24,10 @@ namespace Engine
 
 		ImGuiIO& io = ImGui::GetIO(); (void)io;
 		ASSERT(io.BackendPlatformUserData == nullptr, "Already initialized a platform backend!");
-		io.BackendFlags |= ImGuiBackendFlags_HasMouseCursors;         // We can honor GetMouseCursor() values (optional)
+		
+        io.BackendFlags |= ImGuiBackendFlags_HasMouseCursors;         // We can honor GetMouseCursor() values (optional)
 		io.BackendFlags |= ImGuiBackendFlags_HasSetMousePos;          // We can honor io.WantSetMousePos requests (optional, rarely used)
+		io.BackendFlags |= ImGuiBackendFlags_PlatformHasViewports;    // We can create multi-viewports on the Platform side (optional)
 		io.BackendFlags |= ImGuiBackendFlags_PlatformHasViewports;    // We can create multi-viewports on the Platform side (optional)
 		io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;       // Enable Keyboard Controls
 		//io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
@@ -33,7 +35,6 @@ namespace Engine
 		//io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;         // Enable Multi-Viewport / Platform Windows
 		//io.ConfigViewportsNoAutoMerge = true;
 		//io.ConfigViewportsNoTaskBarIcon = true;
-		// 
 		// Setup Dear ImGui style
 		ImGui::StyleColorsDark();
 		//ImGui::StyleColorsLight();
@@ -55,6 +56,8 @@ namespace Engine
 		
 		ImGui::NewFrame();
 
+        ImGui::DockSpaceOverViewport(ImGui::GetMainViewport());
+
 		UIDraw();
 
 		//Render UI elements
@@ -66,12 +69,16 @@ namespace Engine
 
 	}
 
-	void ImGuiLayer::OnEvent(Event &e)
-	{
-
-
-		
-	}
+    void ImGuiLayer::OnEvent(Event& e)
+    {
+        OnWindowResizeEvent(e);
+        OnKeyReleasedEvent(e);
+        OnKeyPressedEvent(e);
+        OnMouseMovedEvent(e);
+        OnMousePressedEvent(e);
+        OnMouseReleasedEvent(e);
+        OnMouseScrolledEvent(e);
+    }
 
 	void UIDraw()
 	{
@@ -82,6 +89,8 @@ namespace Engine
 	ImGuiKey EngineKey_To_ImGuiKey(int key)
 	{
         // Will need to be modified once we implement Native plaform independent key codes for the engine
+        // For now, Engine keys are the same as GLFW keys
+        
         switch (key)
         {
             case GLFW_KEY_TAB: return ImGuiKey_Tab;
@@ -192,7 +201,7 @@ namespace Engine
             default: return ImGuiKey_None;
         }
 	}
-    void ImGuiLayer::OnKeyPressedEvent(KeyPressedEvent& e)
+    void ImGuiLayer::OnKeyPressedEvent(Event& e)
     {
         EventDispatcher dispatcher(e);
         dispatcher.Dispatch<KeyPressedEvent>([this](KeyPressedEvent& e) {
@@ -203,7 +212,7 @@ namespace Engine
             });
         
     }
-    void ImGuiLayer::OnMouseMovedEvent(MouseMovedEvent& e)
+    void ImGuiLayer::OnMouseMovedEvent(Event& e)
     {
         EventDispatcher dispatcher(e);
         dispatcher.Dispatch<MouseMovedEvent>([this](MouseMovedEvent& e) {
@@ -218,31 +227,61 @@ namespace Engine
                 y += pos.y;
             }
             io.AddMousePosEvent((float)x, (float)y);
-            return true;
+            return false;
         });
         
     }
-    void ImGuiLayer::OnKeyReleasedEvent(KeyReleasedEvent& e)
+    void ImGuiLayer::OnKeyReleasedEvent(Event& e)
     {
         EventDispatcher dispatcher(e);
-        dispatcher.Dispatch<KeyPressedEvent>([this](KeyPressedEvent& e) {
+        dispatcher.Dispatch<KeyReleasedEvent>([this](KeyReleasedEvent& e) {
             ImGuiIO& io = ImGui::GetIO();
             ImGuiKey imgui_key = EngineKey_To_ImGuiKey(e.GetKeyCode());
             io.AddKeyEvent(imgui_key, false);
             return true;
             });
     }
-    void ImGuiLayer::OnMousePressedEvent(MouseButtonPressedEvent& e)
+    void ImGuiLayer::OnMousePressedEvent(Event& e)
     {
-
+        EventDispatcher dispatcher(e);
+        dispatcher.Dispatch<MouseButtonPressedEvent>([this](MouseButtonPressedEvent& e) {
+            ImGuiIO& io = ImGui::GetIO();
+            auto button = e.GetMouseButton();
+            if (button >= 0 && button < 5) //only supported buttons by imgui
+            {
+                io.AddMouseButtonEvent(button, GLFW_PRESS);
+                return true;
+            }
+            else
+                return false;
+        });
     }
-    void ImGuiLayer::OnMouseReleasedEvent(MouseButtonReleasedEvent& e)
+    void ImGuiLayer::OnMouseReleasedEvent(Event& e)
     {
+        EventDispatcher dispatcher(e);
+        dispatcher.Dispatch<MouseButtonReleasedEvent>([this](MouseButtonReleasedEvent& e) {
+        ImGuiIO& io = ImGui::GetIO();
+        auto button = e.GetMouseButton();
+        if (button >= 0 && button < 5) //only supported buttons by imgui
+        {
+            io.AddMouseButtonEvent(button, GLFW_RELEASE);
+            return true;
+        }
+        else
+            return false;
+        });
     }
-    void ImGuiLayer::OnMouseScrolledEvent(MouseScrolledEvent& e)
+    void ImGuiLayer::OnMouseScrolledEvent(Event& e)
     {
+        EventDispatcher dispatcher(e);
+        dispatcher.Dispatch<MouseScrolledEvent>([this](MouseScrolledEvent& e) {
+            ImGuiIO& io = ImGui::GetIO();
+            io.AddMouseWheelEvent((float)e.GetXOffset(), (float)e.GetYOffset());
+            return true;
+            });
     }
-    void ImGuiLayer::OnWindowResizeEvent(WindowResizeEvent& e)
+    void ImGuiLayer::OnWindowResizeEvent(Event& e)
     {
+        
     }
 }

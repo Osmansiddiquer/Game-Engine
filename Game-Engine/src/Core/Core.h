@@ -3,8 +3,11 @@
 #ifdef ENGINE_PLATFORM_WINDOWS //specific to windows
 	#ifdef ENGINE_BUILD_DLL  //set different macros for import and exporsst
 		#define ENGINE_API __declspec(dllexport)
+		#define ENGINE_API_DECLARE
 	#else
 		#define ENGINE_API __declspec(dllimport)
+		#define ENGINE_API_DECLARE __declspec(dllexport)
+#define
 	#endif
 #else
 	#error Engine only supports windows at the moment
@@ -25,6 +28,21 @@ else \
 #define ASSERT(expr, description) //evaluates to nothing
 #endif
 
-struct Vec2 { double x = 0, y = 0; };
-struct Vec3 { double x = 0, y = 0, z = 0; };
-struct Vec4 { double x = 0, y = 0, z = 0, w = 0; };
+/**
+ * \brief Used to easily benchmark a given procedure and print the result out
+ * using the given name
+ */
+template <typename Function, typename... Args>
+double Benchmark(Function && func, Args&&... args) {
+	// Start the timer
+	auto startTime = std::chrono::high_resolution_clock::now();
+
+	// Execute the function with the provided arguments
+	std::invoke(std::forward<Function>(func), std::forward<Args>(args)...);
+
+	// Stop the timer and calculate the elapsed time in milliseconds
+	auto endTime = std::chrono::high_resolution_clock::now();
+	std::chrono::duration<double, std::milli> elapsedTime = endTime - startTime;
+
+	return elapsedTime.count();
+}

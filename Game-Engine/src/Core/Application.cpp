@@ -9,6 +9,7 @@ namespace Engine {
 		m_window = std::unique_ptr<Window>(Window::Create());
 		m_window->SetEventCallBack(std::bind(&Application::OnEvent, this, std::placeholders::_1));
 		s_Instance = this;
+		
 	}
 
 	Application::~Application()

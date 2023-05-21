@@ -4,8 +4,6 @@ namespace Engine
 {
 	//Gets time in milliseconds since epoch
 	uint64_t UID::seed = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
-
-
 	int UID::GenerateID()
 	{
 		int ID;

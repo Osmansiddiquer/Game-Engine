@@ -1,3 +1,5 @@
+#include "Engine_pch.h"
+
 #include "Collisions/CapsuleCollider.h"
 #include "Collisions/BoxCollider.h"
 #include "Collisions/CollisionsModule.h"
@@ -6,9 +8,7 @@
 
 #include "Core/Debug/DebugDraw.h"
 #include "Core/Geometry/Ray.h"
-#include "Core/Math/Matrix3.h"
-#include "Core/Math/Matrix4.h"
-#include "Core/Math/Vector4.h"
+#include "Core/Math/Math.h"
 #include "Scene/Transform.h"
 
 namespace Engine {
@@ -46,7 +46,7 @@ bool CapsuleCollider::RaycastSphere(const Math::Vector3& center, float radius,
   if (discrim < 0.0f) {
     return false;
   }
-  discrim = Math::Util::Sqrt(discrim);
+  discrim = std::Sqrt(discrim);
   float t = -b - discrim;
   if (t < 0.f) t = -b + discrim;
   if (t > maxDistance) return false;
@@ -63,20 +63,20 @@ float CapsuleCollider::GetWorldCapsule(Math::Matrix4* rotation,
     case Direction::X_AXIS:
       rot *= Math::Matrix4::zRot90;
       // rot = rot * Math::Matrix4::zRot90;
-      max = Math::Util::Max(transform->GetWorldScale().y,
+      max = std::max(transform->GetWorldScale().y,
                             transform->GetWorldScale().z);
       *scale = Math::Matrix4::Scale(
           Math::Vector3{transform->GetWorldScale().x, max, max});
       break;
     case Direction::Y_AXIS:
-      max = Math::Util::Max(transform->GetWorldScale().x,
+      max = std::max(transform->GetWorldScale().x,
                             transform->GetWorldScale().z);
       *scale = Math::Matrix4::Scale(
           Math::Vector3{max, transform->GetWorldScale().y, max});
       break;
     case Direction::Z_AXIS:
       *rotation *= Math::Matrix4::xRot90;
-      max = Math::Util::Max(transform->GetWorldScale().x,
+      max = std::max(transform->GetWorldScale().x,
                             transform->GetWorldScale().y);
       *scale = Math::Matrix4::Scale(
           Math::Vector3{max, max, transform->GetWorldScale().z});
@@ -110,7 +110,7 @@ bool CapsuleCollider::Raycast(const Ray& ray, RaycastHit* const hitInfo,
 
   float a = Math::Vector3::Dot(q, q);
   float b = 2.0f * Math::Vector3::Dot(q, r);
-  float c = Math::Vector3::Dot(r, r) - Math::Util::Square(radius * radiusScale);
+  float c = Math::Vector3::Dot(r, r) - std::Square(radius * radiusScale);
 
   if (a == 0.0f) {
     RaycastHit aHit, bHit;
@@ -126,7 +126,7 @@ bool CapsuleCollider::Raycast(const Ray& ray, RaycastHit* const hitInfo,
 
   float discrim = b * b - 4.f * a * c;
   if (discrim < 0.f) return false;
-  float sqrtDiscrim = Math::Util::Sqrt(discrim);
+  float sqrtDiscrim = std::Sqrt(discrim);
   float denom = 0.5f / a;
   float tmin = -(b + sqrtDiscrim) * denom;
   float tmax = (-b + sqrtDiscrim) * denom;

@@ -1,3 +1,5 @@
+#include "Engine_pch.h"
+
 #include "Collisions/SphereCollider.h"
 #include "Collisions/BoxCollider.h"
 #include "Collisions/CapsuleCollider.h"
@@ -5,7 +7,7 @@
 
 #include "Core/Debug/DebugDraw.h"
 #include "Core/Geometry/Ray.h"
-#include "Core/Math/Matrix4.h"
+#include "Core/Math/Math.h"
 #include "Scene/Transform.h"
 
 namespace Engine {
@@ -30,7 +32,7 @@ bool SphereCollider::Raycast(const Ray& ray, RaycastHit* const hitInfo,
   }
   float discrim = b * b - c;
   if (discrim < 0.0f) return false;
-  discrim = Math::Util::Sqrt(discrim);
+  discrim = std::Sqrt(discrim);
   float t = -b - discrim;
   if (t < 0.f) t = -b + discrim;
   if (t > maxDistance) return false;

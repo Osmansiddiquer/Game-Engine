@@ -1,28 +1,29 @@
-#include "AABB.h"
+#include "Engine_pch.h"
 
+#include "AABB.h"
 #include "Collisions/RaycastHit.h"
 #include "Core/Geometry/Ray.h"
-#include "Core/Math/Util.h"
+#include "Core/Math/Math.h"
 
 namespace Engine {
 bool AABB::Contains(const Math::Vector3& point) const {
-  return (point.x >= min.x && point.x <= max.x) &&
-         (point.y >= min.y && point.y <= max.y) &&
-         (point.z >= min.z && point.z <= max.z);
+  return (point.x >= Min.x && point.x <= Max.x) &&
+         (point.y >= Min.y && point.y <= Max.y) &&
+         (point.z >= Min.z && point.z <= Max.z);
 }
 bool AABB::Contains(const AABB& aabb) const {
   return Contains(aabb.min) && Contains(aabb.max);
 }
 
 bool AABB::Intersect(const AABB& other) const {
-  return (min.x <= other.max.x && max.x >= other.min.x) &&
-         (min.y <= other.max.y && max.y >= other.min.y) &&
-         (min.z <= other.max.z && max.z >= other.min.z);
+  return (Min.x <= other.Max.x && Max.x >= other.Min.x) &&
+         (Min.y <= other.Max.y && Max.y >= other.Min.y) &&
+         (Min.z <= other.Max.z && Max.z >= other.Min.z);
 }
 bool AABB::Intersect(const AABB* a, const AABB* b) {
-  return (a->min.x <= b->max.x && a->max.x >= b->min.x) &&
-         (a->min.y <= b->max.y && a->max.y >= b->min.y) &&
-         (a->min.z <= b->max.z && a->max.z >= b->min.z);
+  return (a->Min.x <= b->Max.x && a->Max.x >= b->Min.x) &&
+         (a->Min.y <= b->Max.y && a->Max.y >= b->Min.y) &&
+         (a->Min.z <= b->Max.z && a->Max.z >= b->Min.z);
 }
 
 void AABB::Expand(const float amount) {
@@ -33,28 +34,28 @@ void AABB::Expand(const float amount) {
 }
 
 void AABB::Encapsulate(const Math::Vector3& point) {
-  min.x = Math::Util::Min(min.x, point.x);
-  min.y = Math::Util::Min(min.y, point.y);
-  min.z = Math::Util::Min(min.z, point.z);
-  max.x = Math::Util::Max(max.x, point.x);
-  max.y = Math::Util::Max(max.y, point.y);
-  max.z = Math::Util::Max(max.z, point.z);
+  Min.x = std::min(Min.x, point.x);
+  Min.y = std::min(Min.y, point.y);
+  Min.z = std::min(Min.z, point.z);
+  Max.x = std::max(Max.x, point.x);
+  Max.y = std::max(Max.y, point.y);
+  Max.z = std::max(Max.z, point.z);
 }
 void AABB::Encapsulate(const AABB& other) {
-  min.x = Math::Util::Min(min.x, other.min.x);
-  min.y = Math::Util::Min(min.y, other.min.y);
-  min.z = Math::Util::Min(min.z, other.min.z);
-  max.x = Math::Util::Max(max.x, other.max.x);
-  max.y = Math::Util::Max(max.y, other.max.y);
-  max.z = Math::Util::Max(max.z, other.max.z);
+  Min.x = std::min(Min.x, other.Min.x);
+  Min.y = std::min(Min.y, other.Min.y);
+  Min.z = std::min(Min.z, other.Min.z);
+  Max.x = std::max(Max.x, other.Max.x);
+  Max.y = std::max(Max.y, other.Max.y);
+  Max.z = std::max(Max.z, other.Max.z);
 }
 AABB AABB::Encapsulate(const AABB& a, const AABB& b) {
-  return AABBConstruct(Math::Vector3{Math::Util::Min(a.min.x, b.min.x),
-                                     Math::Util::Min(a.min.y, b.min.y),
-                                     Math::Util::Min(a.min.z, b.min.z)},
-                       Math::Vector3{Math::Util::Max(a.max.x, b.max.x),
-                                     Math::Util::Max(a.max.y, b.max.y),
-                                     Math::Util::Max(a.max.z, b.max.z)});
+  return AABBConstruct(Math::Vector3{std::min(a.Min.x, b.Min.x),
+                                     std::min(a.Min.y, b.Min.y),
+                                     std::min(a.Min.z, b.Min.z)},
+                       Math::Vector3{std::max(a.Max.x, b.Max.x),
+                                     std::max(a.Max.y, b.Max.y),
+                                     std::max(a.Max.z, b.Max.z)});
 }
 
 bool AABB::Raycast(const Ray& ray, RaycastHit* const hitInfo,
@@ -71,11 +72,11 @@ bool AABB::Raycast(const Ray& ray, RaycastHit* const hitInfo,
     t[2 * i + 1] = (e[i] - o[i]) * invD[i];
   }
   tmin =
-      Math::Util::Max({Math::Util::Min(t[0], t[1]), Math::Util::Min(t[2], t[3]),
-                       Math::Util::Min(t[4], t[5])});
+      std::max({std::min(t[0], t[1]), std::min(t[2], t[3]),
+                       std::min(t[4], t[5])});
   tmax =
-      Math::Util::Min({Math::Util::Max(t[0], t[1]), Math::Util::Max(t[2], t[3]),
-                       Math::Util::Max(t[4], t[5])});
+      std::min({std::max(t[0], t[1]), std::max(t[2], t[3]),
+                       std::max(t[4], t[5])});
   if (tmax < 0 || tmin > tmax) return false;
   if (tmin < 0) tmin = tmax;
 

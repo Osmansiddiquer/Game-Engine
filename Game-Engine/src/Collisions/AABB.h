@@ -1,5 +1,5 @@
 #pragma once
-#include "Core/Math/Vector3.h"
+#include "Core/Math/Math.h"
 
 namespace Engine {
 class AABB {

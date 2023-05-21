@@ -131,6 +131,11 @@
   <ItemGroup>
     <ClCompile Include="src\Sandbox.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Game-Engine\Game-Engine.vcxproj">
+      <Project>{A2950770-0E4B-8065-973F-7A3C03F47669}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

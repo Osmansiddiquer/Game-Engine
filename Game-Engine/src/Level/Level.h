@@ -43,7 +43,7 @@ class ENGINE_API Level {
 
   bool isLevelLoaded = false;
 
-  TemplatePoolAllocator<Entity> pool;
+  std::vector<Entity> pool;
 
   friend class Entity;
   friend class EngineLoop;
